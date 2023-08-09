@@ -1,0 +1,53 @@
+{
+  "name": "tools-root",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "Jorge Luis Calleja A. - wootsbot",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "build": "turbo run build",
+    "generate": "turbo run generate",
+    "bundlesize": "turbo run bundlesize",
+    "clean": "turbo run clean",
+    "lint:types": "turbo run lint:types",
+    "lint:eslint": "eslint '**/*.{js,ts}'",
+    "lint": "pnpm lint:eslint",
+    "prettier:format": "prettier --config .prettierrc \"./**/*.+(js|ts)\" --write",
+    "prettier": "prettier --config .prettierrc \"./**/*.+(js|ts)\" --check",
+    "lint-staged": "lint-staged",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.2",
+    "@changesets/get-release-plan": "3.0.17",
+    "@changesets/types": "5.2.1",
+    "@types/eslint": "8.44.2",
+    "@types/node": "20.4.9",
+    "@typescript-eslint/eslint-plugin": "6.3.0",
+    "@typescript-eslint/parser": "6.3.0",
+    "eslint": "8.46.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.3",
+    "prettier": "3.0.1",
+    "tsconfig": "workspace:*",
+    "turbo": "1.10.12",
+    "typescript": "5.0.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "typescript": "5.0.4"
+    }
+  }
+}

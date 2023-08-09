@@ -1,0 +1,37 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "public/dist/**"]
+    },
+    "generate": {
+      "inputs": ["**/*.{js,ts}"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "bundlesize": {
+      "inputs": ["**/*.{cjs,mjs,d.ts}"]
+    },
+    "prettier": {
+      "outputs": [],
+      "inputs": ["**/*.{js,ts}"]
+    },
+    "lint:types": {
+      "dependsOn": ["lint"],
+      "inputs": ["**/*.{js,ts}"]
+    },
+    "types": {
+      "outputs": ["dist/**/*.d.ts"]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}

@@ -1,0 +1,69 @@
+name: Generate Pull Request Stats Openkit
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+env:
+  TURBO_VERSION: 1.10.12
+  PNPM_VERSION: 8.6.12
+
+jobs:
+  format:
+    name: PR Stats
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+          scope: '@openkit'
+
+      # We use week in the turbo cache key to keep the cache from infinitely growing
+      - id: get-week
+        run: echo name=WEEK::$(date +%U) >> $GITHUB_OUTPUT
+
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ github.job }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-
+            turbo-${{ github.job }}-canary-${{ steps.get-week.outputs.WEEK }}-
+
+      - name: 🔥 Setup pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@${PNPM_VERSION} --activate
+
+      - name: 📦 Install Dependencies
+        run: |
+          pnpm install --no-frozen-lockfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🎢 generate
+        run: pnpm turbo run generate --cache-dir=".turbo"
+
+      - name: 💣 build
+        run: pnpm turbo run build --cache-dir=".turbo"
+
+      - name: 💅 Prettier
+        run: pnpm turbo run prettier
+
+      - name: 💎 lint:types
+        run: pnpm turbo run lint:types --cache-dir=".turbo"
+
+      - name: bundlesize
+        run: pnpm turbo run bundlesize --cache-dir=".turbo"

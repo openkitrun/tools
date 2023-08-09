@@ -1,0 +1,78 @@
+{
+  "name": "@openkit/language-codes",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "language-codes",
+    "codea",
+    "wootsbot"
+  ],
+  "homepage": "https://github.com/openkitdotrun/tools/@tools-language-codes#readme",
+  "bugs": {
+    "url": "https://github.com/openkitdotrun/tools/@tools-language-codes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:openkitdotrun/tools.git",
+    "directory": "@tools-language-codes"
+  },
+  "license": "MIT",
+  "author": "Jorge Luis Calleja <jorge.calleja@wootsbot.dev>",
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "*.d.ts*",
+    "*.js",
+    "*.mjs",
+    "*.cjs"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf -rf ./src/lenguas-codes.ts lenguas-codes.cjs lenguas-codes.d.ts lenguas-codes.mjs index.cjs index.d.ts index.mjs",
+    "lint:types": "tsc --noEmit",
+    "generate": "pnpm clean && node ./scripts/generate.script",
+    "prettier:format": "prettier --config .prettierrc \"./**/*.+(js|json|ts|tsx)\" --write",
+    "bundlesize": "bundlesize"
+  },
+  "lint-staged": {
+    "./**/*.+(js|json)": [
+      "prettier --write"
+    ]
+  },
+  "bundlesize": [
+    {
+      "path": "./index.cjs",
+      "maxSize": "1 kB"
+    },
+    {
+      "path": "./index.mjs",
+      "maxSize": "1 kB"
+    },
+    {
+      "path": "./index.d.ts",
+      "maxSize": "1 kB"
+    }
+  ],
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.0.4",
+    "bundlesize": "0.18.1",
+    "rimraf": "^3.0.2",
+    "typescript": "5.0.4",
+    "vite": "4.4.9",
+    "vite-plugin-dts": "3.5.1",
+    "tsconfig": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

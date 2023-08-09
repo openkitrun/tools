@@ -1,0 +1,10 @@
+{
+  "extends": "tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@tools-language-codes": ["./packages/@tools-language-codes/src"],
+      "@tools-language-codes/*": ["./packages/@tools-language-codes/src/*"]
+    }
+  }
+}
