@@ -54,19 +54,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🎢 generate
-        run: pnpm turbo run generate --cache-dir=".turbo"
+        run: pnpm generate
 
       - name: 💩 test
-        run: pnpm turbo run test --cache-dir=".turbo"
+        run: pnpm test
 
       - name: 💣 build
-        run: pnpm turbo run build --cache-dir=".turbo"
+        run: pnpm build
 
       - name: 💅 Prettier
-        run: pnpm turbo run prettier
+        run: pnpm prettier
 
       - name: 💎 lint:types
-        run: pnpm turbo run lint:types --cache-dir=".turbo"
+        run: pnpm lint:types
 
       - name: bundlesize
-        run: pnpm turbo run bundlesize --cache-dir=".turbo"
+        run: pnpm bundlesize
