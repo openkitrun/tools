@@ -1,5 +1,11 @@
 # @openkit/language-codes
 
+## 0.1.0-beta.6
+
+### Minor Changes
+
+- [`1cbcaf4`](https://github.com/openkitdotrun/tools/commit/1cbcaf4176924cf8ceb08bca1c19f8b3c8c83bc8) Thanks [@wootsbot](https://github.com/wootsbot)! - Added `folderName` property
+
 ## 0.1.0-beta.5
 
 ### Patch Changes
