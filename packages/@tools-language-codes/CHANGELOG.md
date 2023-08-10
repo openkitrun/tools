@@ -1,5 +1,11 @@
 # @openkit/language-codes
 
+## 0.1.0-beta.2
+
+### Minor Changes
+
+- [`867a1be`](https://github.com/openkitdotrun/tools/commit/867a1be718f5f012ed3363da2ac0e879ea2f3c86) Thanks [@wootsbot](https://github.com/wootsbot)! - Config types
+
 ## 0.1.0-beta.1
 
 ### Patch Changes
