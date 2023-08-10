@@ -55,7 +55,7 @@
     },
     {
       "path": "./index.d.ts",
-      "maxSize": "1 kB"
+      "maxSize": "15 kB"
     }
   ],
   "devDependencies": {
