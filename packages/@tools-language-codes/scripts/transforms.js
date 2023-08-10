@@ -12,6 +12,9 @@ function transformToEnum(input) {
 function transformCultureNames(input) {
   const languageCodes = input.language_codes_list.reduce((acc, item) => {
     const key = item.culture.replace(/[\s-]/g, '_').toUpperCase();
+    const folderName = item.culture.replace(/[\s-]/g, '_').toLowerCase();
+
+    item.folderName = folderName;
     acc[key] = item;
 
     return acc;
@@ -26,12 +29,12 @@ function transformToTypeDefinitions(data) {
   let interfaceBody = 'export interface LanguageCodes {\n';
 
   data.language_codes_list.forEach((item) => {
-    //culture.replace(/[\s-]/g, '_').toUpperCase();
-    let enumKey = item.culture.replace(/[\s-]/g, '_').toUpperCase();
-    let key = item.culture
+    const enumKey = item.culture.replace(/[\s-]/g, '_').toUpperCase();
+    const key = item.culture
       .split(/[-\s]/)
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join('');
+    const folderName = item.culture.replace(/[\s-]/g, '_').toLowerCase();
 
     enums += `  ${enumKey} = '${enumKey}',\n`;
 
@@ -60,6 +63,14 @@ function transformToTypeDefinitions(data) {
    *
    */
   displayName: string;
+  /**
+   * A suggested folder name to store '${item.culture}' locales, based on the 'culture' property.
+   * e.g., './${folderName}'.
+   *
+   * @Type string
+   *
+   */
+  folderName: '${folderName}';
 }\n\n`;
 
     interfaceBody += `  [LanguageTypes.${enumKey}]: ${key},\n`;

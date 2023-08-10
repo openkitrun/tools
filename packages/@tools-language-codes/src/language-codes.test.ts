@@ -9,6 +9,7 @@ describe('languageCodes', () => {
       culture: 'es-MX',
       langCode: 'es-MX',
       displayName: 'Spanish (Mexico)',
+      folderName: 'es_mx',
     };
 
     expect(languageCodes.ES_MX).toEqual(expectObject);
@@ -32,6 +33,12 @@ describe('languageCodes', () => {
     expect(languageCodes.ES_MX.displayName).toEqual(expectText);
   });
 
+  test('must return an prorpety "folderName" with value "es_mx"', () => {
+    const expectText = 'es_mx';
+
+    expect(languageCodes.ES_MX.folderName).toEqual(expectText);
+  });
+
   test('types languageCodes properly', () => {
     expectTypeOf(languageCodes).toMatchTypeOf<LanguageCodes>;
     expectTypeOf(languageCodes).toBeObject;
@@ -40,7 +47,12 @@ describe('languageCodes', () => {
 
   test('types languageCodes.ES_MX properly', () => {
     expectTypeOf(languageCodes.ES_MX).toMatchTypeOf<EsMX>;
-    expectTypeOf(languageCodes.ES_MX).toMatchTypeOf<{ culture: 'es-MX'; langCode: 'es-MX'; displayName: string }>;
+    expectTypeOf(languageCodes.ES_MX).toMatchTypeOf<{
+      culture: 'es-MX';
+      langCode: 'es-MX';
+      displayName: string;
+      folderName: 'es_mx';
+    }>;
     expectTypeOf(languageCodes.ES_MX).toBeObject;
     expectTypeOf(languageCodes.ES_MX.culture).toBeString;
     expectTypeOf(languageCodes.ES_MX.displayName).toBeString;
