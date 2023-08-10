@@ -1,15 +1,12 @@
-import path from 'path';
-
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-
-import pkg from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     dts({
-      insertTypesEntry: true,
+      //insertTypesEntry: true,
+      rollupTypes: true,
       entryRoot: 'src',
     }),
   ],

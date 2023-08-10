@@ -44,11 +44,6 @@
     "prettier:format": "prettier --config .prettierrc \"./**/*.+(js|json|ts|tsx)\" --write",
     "bundlesize": "bundlesize"
   },
-  "lint-staged": {
-    "./**/*.+(js|json)": [
-      "prettier --write"
-    ]
-  },
   "bundlesize": [
     {
       "path": "./index.cjs",

@@ -16,12 +16,10 @@ if (!fs.existsSync(dir)) {
 const cultureNamesFilePath = path.join(rootDir, `/src`, `/lenguas-codes.ts`);
 const typesFilePath = path.join(rootDir, `/src`, `/types.ts`);
 
-Promise.all([fsPromise.writeFile(cultureNamesFilePath, lenguasCodesTemplateV2(language_codes), formatFile)]).then(
-  () => {
-    console.info('Write src/lenguas-codes.ts');
-  },
-);
-
-Promise.all([fsPromise.writeFile(typesFilePath, typesTemplate(language_codes), formatFile)]).then(() => {
+Promise.all([
+  fsPromise.writeFile(typesFilePath, typesTemplate(language_codes), formatFile),
+  fsPromise.writeFile(cultureNamesFilePath, lenguasCodesTemplateV2(language_codes), formatFile),
+]).then(() => {
   console.info('Write src/types.ts');
+  console.info('Write src/lenguas-codes.ts');
 });
