@@ -34,3 +34,5 @@ console.log(languageCodes.ES_MX.displayName);
 console.log(languageCodes.ES_MX.langCode);
 // 'es-MX'
 ```
+
+# thanks to @JamieMason for his reference https://gist.github.com/JamieMason/3748498
