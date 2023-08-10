@@ -1,6 +1,6 @@
 import { expect, test, describe, expectTypeOf, assertType } from 'vitest';
 
-import languageCodes from './lenguas-codes';
+import languageCodes from './language-codes';
 import { LanguageCodes, EsMX } from './types';
 
 describe('languageCodes', () => {

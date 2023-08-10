@@ -38,7 +38,7 @@
   ],
   "scripts": {
     "build": "vite build",
-    "clean": "rimraf -rf ./src/lenguas-codes.ts lenguas-codes.cjs lenguas-codes.d.ts lenguas-codes.mjs index.cjs index.d.ts index.mjs",
+    "clean": "rimraf -rf ./src/types.ts ./src/language-codes.ts language-codes.cjs language-codes.d.ts language-codes.mjs index.cjs index.d.ts index.mjs types.cjs types.d.ts.map types.mjs",
     "lint:types": "tsc --noEmit",
     "generate": "pnpm clean && node ./scripts/generate.script",
     "prettier:format": "prettier --config .prettierrc \"./**/*.+(js|json|ts|tsx)\" --write",

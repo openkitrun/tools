@@ -1,5 +1,5 @@
 function transformToEnum(input) {
-  const enumLanguageTypes = input.language_codes
+  const enumLanguageTypes = input.language_codes_list
     .map((item) => {
       const key = item.culture.replace(/[\s-]/g, '_').toUpperCase();
       return `  ${key} = '${key}',`;
@@ -10,7 +10,7 @@ function transformToEnum(input) {
 }
 
 function transformCultureNames(input) {
-  const languageCodes = input.language_codes.reduce((acc, item) => {
+  const languageCodes = input.language_codes_list.reduce((acc, item) => {
     const key = item.culture.replace(/[\s-]/g, '_').toUpperCase();
     acc[key] = item;
 
@@ -25,7 +25,7 @@ function transformToTypeDefinitions(data) {
   let types = '';
   let interfaceBody = 'export interface LanguageCodes {\n';
 
-  data.language_codes.forEach((item) => {
+  data.language_codes_list.forEach((item) => {
     //culture.replace(/[\s-]/g, '_').toUpperCase();
     let enumKey = item.culture.replace(/[\s-]/g, '_').toUpperCase();
     let key = item.culture
@@ -73,6 +73,5 @@ function transformToTypeDefinitions(data) {
 
 module.exports = {
   transformCultureNames,
-  transformToEnum,
   transformToTypeDefinitions,
 };

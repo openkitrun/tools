@@ -1,3 +1,3 @@
-export { default } from './lenguas-codes';
-export * from './lenguas-codes';
+export { default } from './language-codes';
+export * from './language-codes';
 export * from './types';
