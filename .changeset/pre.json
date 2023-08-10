@@ -3,12 +3,14 @@
   "tag": "beta",
   "initialVersions": {
     "@openkit/language-codes": "0.0.1",
-    "tsconfig": "0.0.0"
+    "tsconfig": "0.0.0",
+    "@openkit/culture-codes": "0.0.1"
   },
   "changesets": [
     "angry-mails-yell",
     "dull-eels-marry",
     "forty-cars-peel",
-    "mean-peas-sip"
+    "mean-peas-sip",
+    "red-bags-jump"
   ]
 }
