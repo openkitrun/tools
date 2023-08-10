@@ -1,4 +1,4 @@
-const { transformToEnum, transformCultureNames } = require('./transforms');
+const { transformToEnum, transformCultureNames, transformToTypeDefinitions } = require('./transforms');
 
 const lenguasCodesTemplate = (input) => {
   return `
@@ -41,6 +41,24 @@ export default languageCodes;
   `;
 };
 
+const lenguasCodesTemplateV2 = (input) => {
+  return `
+import { LanguageCodes } from './types';
+
+export const languageCodes: LanguageCodes = ${transformCultureNames(input)} as const;
+
+export default languageCodes;
+  `;
+};
+
+const typesTemplate = (input) => {
+  return `
+${transformToTypeDefinitions(input)}
+  `;
+};
+
 module.exports = {
   lenguasCodesTemplate,
+  lenguasCodesTemplateV2,
+  typesTemplate,
 };
