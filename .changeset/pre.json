@@ -5,10 +5,5 @@
     "@openkit/language-codes": "0.0.1",
     "tsconfig": "0.0.0"
   },
-  "changesets": [
-    "angry-mails-yell",
-    "dull-eels-marry",
-    "forty-cars-peel",
-    "mean-peas-sip"
-  ]
+  "changesets": ["angry-mails-yell", "dull-eels-marry", "forty-cars-peel", "mean-peas-sip"]
 }
