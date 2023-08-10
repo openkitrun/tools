@@ -36,3 +36,5 @@ console.log(languageCodes.ES_MX.langCode);
 ```
 
 thanks to @JamieMason for his reference https://gist.github.com/JamieMason/3748498
+
+ref: https://datahub.io/core/language-codes#javascript
