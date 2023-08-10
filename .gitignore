@@ -15,6 +15,11 @@ package-lock.json
 .turbo
 src/components
 
+culture-codes.ts
+culture-codes.cjs
+culture-codes.mjs
+types.cjs
+types.mjs
 lenguas-codes.ts
 lenguas-codes.cjs
 lenguas-codes.d.ts

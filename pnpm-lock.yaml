@@ -63,6 +63,33 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
 
+  packages/@tools-culture-codes:
+    devDependencies:
+      '@vitest/coverage-v8':
+        specifier: 0.34.1
+        version: 0.34.1(vitest@0.34.1)
+      bundlesize:
+        specifier: 0.18.1
+        version: 0.18.1
+      rimraf:
+        specifier: ^3.0.2
+        version: 3.0.2
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.0.4
+        version: 5.0.4
+      vite:
+        specifier: 4.4.9
+        version: 4.4.9(@types/node@20.4.9)
+      vite-plugin-dts:
+        specifier: 3.5.1
+        version: 3.5.1(@types/node@20.4.9)(typescript@5.0.4)(vite@4.4.9)
+      vitest:
+        specifier: 0.34.1
+        version: 0.34.1
+
   packages/@tools-language-codes:
     devDependencies:
       '@vitejs/plugin-react':

@@ -1,6 +1,6 @@
 {
   "extends": "./base.json",
-  "display": "TS Library",
+  "display": "Culture Codes",
   "compilerOptions": {
     "lib": ["ES2020"],
     "target": "ES2020",

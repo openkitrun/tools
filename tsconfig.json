@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "@tools-language-codes": ["./packages/@tools-language-codes/src"],
-      "@tools-language-codes/*": ["./packages/@tools-language-codes/src/*"]
+      "@tools-language-codes/*": ["./packages/@tools-language-codes/src/*"],
+      "@tools-culture-codes": ["./packages/@tools-culture-codes/src"],
+      "@tools-culture-codes/*": ["./packages/@tools-culture-codes/src/*"]
     }
   }
 }

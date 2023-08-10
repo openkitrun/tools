@@ -1,0 +1,76 @@
+{
+  "name": "@openkit/culture-codes",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "culture-codes",
+    "codea",
+    "wootsbot"
+  ],
+  "homepage": "https://github.com/openkitdotrun/tools/@tools-culture-codes#readme",
+  "bugs": {
+    "url": "https://github.com/openkitdotrun/tools/@tools-culture-codes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:openkitdotrun/tools.git",
+    "directory": "@tools-culture-codes"
+  },
+  "license": "MIT",
+  "author": "Jorge Luis Calleja <jorge.calleja@wootsbot.dev>",
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "*.d.ts*",
+    "*.js",
+    "*.mjs",
+    "*.cjs"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf -rf ./src/culture-codes.ts culture-codes.test.d.ts culture-codes.test.d.ts.map culture-codes.cjs culture-codes.d.ts culture-codes.mjs index.cjs index.d.ts types.d.ts types.mjs types.cjs index.mjs",
+    "lint:types": "tsc --noEmit",
+    "generate": "pnpm clean && node ./scripts/generate.script",
+    "prettier:format": "prettier --config .prettierrc \"./**/*.+(js|json|ts|tsx)\" --write",
+    "bundlesize": "bundlesize",
+    "test": "vitest --run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "bundlesize": [
+    {
+      "path": "./index.cjs",
+      "maxSize": "1 kB"
+    },
+    {
+      "path": "./index.mjs",
+      "maxSize": "1 kB"
+    },
+    {
+      "path": "./index.d.ts",
+      "maxSize": "15 kB"
+    }
+  ],
+  "devDependencies": {
+    "@vitest/coverage-v8": "0.34.1",
+    "bundlesize": "0.18.1",
+    "rimraf": "^3.0.2",
+    "tsconfig": "workspace:*",
+    "typescript": "5.0.4",
+    "vite": "4.4.9",
+    "vite-plugin-dts": "3.5.1",
+    "vitest": "0.34.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
