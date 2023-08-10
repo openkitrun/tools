@@ -1,5 +1,11 @@
 # @openkit/language-codes
 
+## 0.1.0-beta.1
+
+### Patch Changes
+
+- [`b44e959`](https://github.com/openkitdotrun/tools/commit/b44e959b03c3cefdca38511ec5eaa74ec47e67b5) Thanks [@wootsbot](https://github.com/wootsbot)! - Added tyles by codes
+
 ## 0.1.0-beta.0
 
 ### Minor Changes
