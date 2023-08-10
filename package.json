@@ -18,6 +18,7 @@
     "clean": "turbo run clean",
     "lint:types": "turbo run lint:types",
     "lint:eslint": "eslint '**/*.{js,ts}'",
+    "test": "turbo run test",
     "lint": "pnpm lint:eslint",
     "prettier:format": "prettier --config .prettierrc \"./**/*.+(js|ts)\" --write",
     "prettier": "prettier --config .prettierrc \"./**/*.+(js|ts)\" --check",

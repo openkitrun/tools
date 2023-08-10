@@ -24,3 +24,5 @@ index.d.ts
 index.mjs
 types.d.ts
 types.ts
+
+coverage/

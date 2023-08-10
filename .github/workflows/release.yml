@@ -57,6 +57,9 @@ jobs:
       - name: 🎢 generate
         run: pnpm turbo run generate --cache-dir=".turbo"
 
+      - name: 💩 test
+        run: pnpm turbo run test --cache-dir=".turbo"
+
       - name: 💣 build
         run: pnpm turbo run build --cache-dir=".turbo"
 

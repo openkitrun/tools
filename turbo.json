@@ -10,7 +10,8 @@
       "inputs": ["**/*.{js,ts}"]
     },
     "test": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^generate"],
+      "inputs": ["**/*.test.{ts}"],
       "outputs": []
     },
     "lint": {
