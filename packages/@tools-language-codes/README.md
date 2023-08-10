@@ -1,4 +1,4 @@
-# @openkit/language-codes
+# language-codes
 
 ## Super quick start
 
