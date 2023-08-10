@@ -6,6 +6,7 @@
     "tsconfig": "0.0.0"
   },
   "changesets": [
-    "dull-eels-marry"
+    "dull-eels-marry",
+    "mean-peas-sip"
   ]
 }
