@@ -3,12 +3,14 @@
   "tag": "beta",
   "initialVersions": {
     "@openkit/language-codes": "0.0.1",
-    "tsconfig": "0.0.0"
+    "tsconfig": "0.0.0",
+    "@openkit/config": "0.0.0"
   },
   "changesets": [
     "angry-mails-yell",
     "dull-eels-marry",
     "forty-cars-peel",
+    "light-walls-speak",
     "lucky-bears-march",
     "mean-peas-sip",
     "quiet-crews-cheat",
