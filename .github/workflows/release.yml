@@ -27,8 +27,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🎢 language:generate"
-        run: pnpm language:generate"
+      - name: 🎢 language:generate
+        run: pnpm language:generate
 
       - name: 💣 build
         run: pnpm build
