@@ -1,0 +1,26 @@
+name: "Install"
+description: "Sets up Node.js and runs pnpm install"
+
+runs:
+  using: composite
+  steps:
+    - name: Install Dependencies 📦
+      uses: pnpm/action-setup@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v5
+      with:
+        node-version: 22
+        registry-url: https://registry.npmjs.org/
+        scope: '@openkit'
+        cache: "pnpm"
+
+    - name: Setup Git User
+      shell: bash
+      run: |
+        git config --global user.name "adapta-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --no-frozen-lockfile

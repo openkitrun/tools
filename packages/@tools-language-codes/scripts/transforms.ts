@@ -1,18 +1,22 @@
-function transformToEnum(input) {
-  const enumLanguageTypes = input.language_codes_list
-    .map((item) => {
-      const key = item.culture.replace(/[\s-]/g, '_').toUpperCase();
-      return `  ${key} = '${key}',`;
-    })
-    .join('\n');
-
-  return `{\n${enumLanguageTypes}\n}`;
+interface LanguageCodeItem {
+  culture: string;
+  langCode: string;
+  displayName: string;
+  folderName?: string;
 }
 
-function transformCultureNames(input) {
-  const languageCodes = input.language_codes_list.reduce((acc, item) => {
-    const key = item.culture.replace(/[\s-]/g, '_').toUpperCase();
-    const folderName = item.culture.replace(/[\s-]/g, '_').toLowerCase();
+interface LanguageCodesData {
+  language_codes_list: LanguageCodeItem[];
+}
+
+interface LanguageCodesMap {
+  [key: string]: LanguageCodeItem;
+}
+
+export function transformCultureNames(input: LanguageCodesData): string {
+  const languageCodes = input.language_codes_list.reduce<LanguageCodesMap>((acc, item) => {
+    const key = item.culture.replace(/[\s-]/g, "_").toUpperCase();
+    const folderName = item.culture.replace(/[\s-]/g, "_").toLowerCase();
 
     item.folderName = folderName;
     acc[key] = item;
@@ -23,18 +27,19 @@ function transformCultureNames(input) {
   return JSON.stringify(languageCodes, null, 2);
 }
 
-function transformToTypeDefinitions(data) {
-  let enums = 'export enum LanguageTypes {\n';
-  let types = '';
-  let interfaceBody = 'export interface LanguageCodes {\n';
+export function transformToTypeDefinitions(data: LanguageCodesData): string {
+  let enums = "export enum LanguageTypes {\n";
+  let types = "";
+  let interfaceBody = "export interface LanguageCodes {\n";
 
+  // biome-ignore lint/complexity/noForEach: <>
   data.language_codes_list.forEach((item) => {
-    const enumKey = item.culture.replace(/[\s-]/g, '_').toUpperCase();
+    const enumKey = item.culture.replace(/[\s-]/g, "_").toUpperCase();
     const key = item.culture
       .split(/[-\s]/)
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join('');
-    const folderName = item.culture.replace(/[\s-]/g, '_').toLowerCase();
+      .join("");
+    const folderName = item.culture.replace(/[\s-]/g, "_").toLowerCase();
 
     enums += `  ${enumKey} = '${enumKey}',\n`;
 
@@ -76,13 +81,8 @@ function transformToTypeDefinitions(data) {
     interfaceBody += `  [LanguageTypes.${enumKey}]: ${key},\n`;
   });
 
-  enums += '}\n\n';
-  interfaceBody += '}\n\n';
+  enums += "}\n\n";
+  interfaceBody += "}\n\n";
 
   return enums + types + interfaceBody;
 }
-
-module.exports = {
-  transformCultureNames,
-  transformToTypeDefinitions,
-};

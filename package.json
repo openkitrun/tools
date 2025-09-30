@@ -7,48 +7,40 @@
   "license": "MIT",
   "private": true,
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
+    "node": ">=22",
+    "pnpm": ">=10"
   },
   "scripts": {
-    "prepare": "husky install",
     "build": "turbo run build",
     "generate": "turbo run generate",
-    "bundlesize": "turbo run bundlesize",
-    "clean": "turbo run clean",
-    "lint:types": "turbo run lint:types",
-    "lint:eslint": "eslint '**/*.{js,ts}'",
-    "test": "turbo run test",
-    "lint": "pnpm lint:eslint",
-    "prettier:format": "prettier --config .prettierrc \"./**/*.+(js|ts)\" --write",
-    "prettier": "prettier --config .prettierrc \"./**/*.+(js|ts)\" --check",
-    "lint-staged": "lint-staged",
+    "language:generate": "pnpm --filter=@openkit/language-codes generate && pnpm --filter=@openkit/language-codes lint:fix && pnpm --filter=@openkit/language-codes format",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "format": "turbo run format",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "canary:enter": "changeset pre enter canary",
+    "canary:exit": "changeset pre exit canary",
+    "slack": "tsx scripts/slack.ts",
+    "changelog:gen": "tsx scripts/changelog-generate.ts",
+    "changelog:write": "tsx scripts/changelog-write.ts",
+    "changelog:commit": "git add CHANGELOG.md && git commit -am 'docs(core): Add changelog' && git push"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "0.4.8",
-    "@changesets/cli": "2.26.2",
-    "@changesets/get-release-plan": "3.0.17",
-    "@changesets/types": "5.2.1",
-    "@types/eslint": "8.44.2",
-    "@types/node": "20.4.9",
-    "@typescript-eslint/eslint-plugin": "6.3.0",
-    "@typescript-eslint/parser": "6.3.0",
-    "eslint": "8.46.0",
-    "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-prettier": "5.0.0",
-    "husky": "8.0.3",
-    "lint-staged": "13.2.3",
-    "prettier": "3.0.1",
+    "@biomejs/biome": "2.2.4",
+    "@changesets/changelog-github": "0.5.1",
+    "@changesets/cli": "2.29.7",
+    "@openkit/config": "workspace:*",
+    "@types/node": "24.6.0",
     "tsconfig": "workspace:*",
-    "turbo": "1.10.12",
-    "typescript": "5.0.4"
+    "turbo": "2.5.8",
+    "typescript": "^5"
   },
+  "packageManager": "pnpm@10.17.1",
   "pnpm": {
     "overrides": {
-      "typescript": "5.0.4"
+      "typescript": "^5"
     }
   }
 }

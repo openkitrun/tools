@@ -1,0 +1,30 @@
+{
+	"name": "@openkit/config",
+	"version": "0.0.0",
+	"description": "Toolchain for your project",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/openkitdotrun/tools.git",
+		"directory": "packages/@config"
+	},
+	"license": "MIT",
+	"keywords": [
+		"biome",
+		"lint",
+		"format",
+		"codea",
+		"wootsbot"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"sideEffects": false,
+	"files": [
+		"README.md",
+		"biome.jsonc"
+	],
+	"type": "module",
+	"exports": {
+		"./biome": "./biome.jsonc"
+	}
+}

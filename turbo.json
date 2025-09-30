@@ -1,37 +1,25 @@
 {
-  "$schema": "https://turborepo.org/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
-    "generate": {
-      "inputs": ["**/*.{js,ts}"]
-    },
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
     "build": {
-      "dependsOn": ["^generate", "^build"],
-      "outputs": ["./**"]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"],
+      "env": []
     },
-    "test": {
+    "generate": {
       "dependsOn": ["^generate"],
-      "inputs": ["**/*.test.{ts}"],
-      "outputs": []
+      "env": []
     },
     "lint": {
-      "outputs": []
-    },
-    "bundlesize": {
-      "inputs": ["**/*.{cjs,mjs,d.ts}"]
-    },
-    "prettier": {
       "outputs": [],
-      "inputs": ["**/*.{js,ts}"]
+      "cache": false
     },
-    "lint:types": {
-      "dependsOn": ["lint"],
-      "inputs": ["**/*.{js,ts}"]
+    "lint:fix": {
+      "outputs": [],
+      "cache": false
     },
-    "types": {
-      "outputs": ["dist/**/*.d.ts"]
-    },
-    "clean": {
+    "format": {
+      "outputs": [],
       "cache": false
     }
   }
